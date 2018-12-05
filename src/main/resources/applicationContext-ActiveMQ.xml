@@ -57,7 +57,7 @@
     <!-- 定义Queue监听器 -->
     <jms:listener-container destination-type="queue" container-type="default" connection-factory="connectionFactory"
                             acknowledge="auto" concurrency="5-10">
-        <jms:listener destination="mdb.queue.custAhrCommit" ref="custAhrQueue"/>
+        <jms:listener destination="mdb.queue.custAhrCommit" ref="custAhrQueueB"/>
         <jms:listener destination="mdb.queue.custAhrCommit" ref="custAhrQueueA"/>
     </jms:listener-container>
 

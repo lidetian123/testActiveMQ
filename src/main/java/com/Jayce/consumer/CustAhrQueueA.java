@@ -2,7 +2,7 @@ package com.Jayce.consumer;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import javax.jms.JMSException;
 import javax.jms.Message;
@@ -10,7 +10,7 @@ import javax.jms.MessageListener;
 import javax.jms.TextMessage;
 
 
-@Component
+@Service
 public class CustAhrQueueA implements MessageListener {
 
     private Logger logger = LoggerFactory.getLogger(CustAhrQueueA.class);
@@ -22,11 +22,10 @@ public class CustAhrQueueA implements MessageListener {
 
             TextMessage textMessage = (TextMessage) message;
             try {
-                System.out.println("A:取得消息"+((TextMessage) message).getText());
+                System.out.println("队列消费者A:取得消息"+textMessage.getText());
             } catch (JMSException e) {
                 e.printStackTrace();
             }
-            logger.info("取得消息:{}", textMessage);
         }
 
     }
