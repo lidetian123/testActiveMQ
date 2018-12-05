@@ -14,8 +14,6 @@ public class QueueSender {
 
     @Autowired
     private JmsTemplate jmsTemplate;
-    @Autowired
-    private ConnectionFactory connectionFactory;
 
     public void send(String queueName, final Object message) {
         jmsTemplate.send(queueName, new MessageCreator() {
