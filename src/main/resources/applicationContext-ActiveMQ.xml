@@ -48,6 +48,7 @@
         <property name="pubSubDomain" value="true" />
     </bean>
 
+
     <!-- 消息消费者 start-->
     <!-- 定义Queue监听器 -->
     <jms:listener-container destination-type="queue" container-type="default" connection-factory="connectionFactory"
