@@ -34,7 +34,7 @@
     </bean>
 
     <!-- 配置JMS模板（Queue），Spring提供的JMS工具类，它发送、接收消息。 -->
-    <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+    <bean id="jmsQueueTemplate" class="org.springframework.jms.core.JmsTemplate">
         <property name="connectionFactory" ref="connectionFactory" />
         <!-- 非pub/sub模型（发布/订阅），即队列模式 -->
         <property name="pubSubDomain" value="false"/>
@@ -60,8 +60,8 @@
     <!-- 定义Topic监听器 -->
     <jms:listener-container destination-type="topic" container-type="default"
                             connection-factory="connectionFactory" acknowledge="auto">
-        <jms:listener destination="springTopic" ref="topicConsumerA"/>
-        <jms:listener destination="springTopic" ref="topicConsumerB"/>
+        <jms:listener destination="mdb.topic.custAhrCommit" ref="topicConsumerA"/>
+        <jms:listener destination="mdb.topic.custAhrCommit" ref="topicConsumerB"/>
     </jms:listener-container>
 
 </beans>
