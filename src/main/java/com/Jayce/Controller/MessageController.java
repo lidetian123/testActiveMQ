@@ -30,8 +30,8 @@ public class MessageController {
         //producer.sendMessage(msg);
         long waitTime = 9000;
         for (int i = 0;i<100;i++) {
-            //queueSender.sendStringWait("mdb.queue.custAhrCommit",msg+",第几次："+i,waitTime);
-            topicSender.sendStringWait("mdb.topic.custAhrCommit",msg+",第几次："+i,waitTime);
+            queueSender.sendStringWait("mdb.queue.custAhrCommit",msg+",第几次："+i,waitTime);
+            //topicSender.sendStringWait("mdb.topic.custAhrCommit",msg+",第几次："+i,waitTime);
         }
     }
 

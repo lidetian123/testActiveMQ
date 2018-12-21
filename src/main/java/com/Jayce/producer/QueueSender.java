@@ -37,6 +37,15 @@ public class QueueSender {
         });
     }
 
+    public void sendMap(String queueName, final MapMessage message) {
+        jmsTemplate.send(queueName, new MessageCreator() {
+            @Override
+            public Message createMessage(Session session) throws JMSException {
+                return message;
+            }
+        });
+    }
+
     public void sendStringWait(String queueName, final String message,final long time) {
         jmsTemplate.send(queueName, new MessageCreator() {
             @Override
