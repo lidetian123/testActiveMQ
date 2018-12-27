@@ -25,11 +25,11 @@ public class MessageController {
     @RequestMapping(value = "/SendMessage", method = RequestMethod.POST)
     @ResponseBody
     public void send(HttpServletRequest request) {
-
         String msg = request.getParameter("msg");
         //producer.sendMessage(msg);
-        long waitTime = 9000;
+        long waitTime = 60000;
         for (int i = 0;i<100;i++) {
+
             queueSender.sendStringWait("mdb.queue.custAhrCommit",msg+",第几次："+i,waitTime);
             //topicSender.sendStringWait("mdb.topic.custAhrCommit",msg+",第几次："+i,waitTime);
         }
